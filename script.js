@@ -14,24 +14,28 @@ form.addEventListener('submit', searchForLocation);
 let target = 'Raleigh'
 
 const fetchResults = async (targetLocation) => {
-  let url = `http://api.weatherapi.com/v1/current.json?key=6b93df0078a44b118c1175959260404&q=${targetLocation}&aqi=no`
+  try {
+    let url = let url = `https://api.weatherapi.com/v1/current.json?key=05a6d0aa7b40470d83b202659262704&q=${targetLocation}&aqi=no`
 
-  const res = await fetch(url)
+    const res = await fetch(url);
+    const data = await res.json();
 
-  const data = await res.json()
+    if (data.error) {
+      alert("Location not found. Please try again.");
+      return;
+    }
 
-  console.log(data)
+    let locationName = data.location.name;
+    let time = data.location.localtime;
+    let temp = data.current.temp_c;
+    let condition = data.current.condition.text;
 
-  let locationName = data.location.name
-  let time = data.location.localtime
-
-  let temp = data.current.temp_c
-
-  let condition = data.current.condition.text;
-
-  updateDetails(temp, locationName, time, condition);
-
-}
+    updateDetails(temp, locationName, time, condition);
+  } catch (error) {
+    console.error("Error fetching weather data:", error);
+    alert("Something went wrong. Please try again.");
+  }
+};
 
 console.log(dateandTimeField);
 
