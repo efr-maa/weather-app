@@ -15,7 +15,9 @@ let target = 'Raleigh'
 
 const fetchResults = async (targetLocation) => {
   try {
-    let url = let url = `https://api.weatherapi.com/v1/current.json?key=05a6d0aa7b40470d83b202659262704&q=${targetLocation}&aqi=no`
+    const API_KEY = "05a6d0aa7b40470d83b202659262704";
+
+    let url = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${targetLocation}&aqi=no`;
 
     const res = await fetch(url);
     const data = await res.json();
@@ -31,6 +33,7 @@ const fetchResults = async (targetLocation) => {
     let condition = data.current.condition.text;
 
     updateDetails(temp, locationName, time, condition);
+
   } catch (error) {
     console.error("Error fetching weather data:", error);
     alert("Something went wrong. Please try again.");
