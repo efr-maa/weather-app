@@ -3,40 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather App</title>
+  <title>SkyCast | Live Weather Forecast</title>
   <link href="styles.css" rel="stylesheet" />
 </head>
 <body>
-  
-  <div class="container">
+
+  <div class="container" id="weatherContainer">
 
     <div class="weather_container">
 
+      <p class="brand">SkyCast</p>
+
+      <div class="icon" id="weatherIcon">⛅</div>
+
       <div class="temp">
-        <p>20</p>
+        <p>--</p>
       </div>
 
-    <div class="time_location">
-      <p class="location">Raleigh</p>
-      <p class="date_time">12:58 - Monday 2022-09-26</p>
-    </div>  
+      <div class="time_location">
+        <p class="location">Loading...</p>
+        <p class="date_time">--</p>
+      </div>
 
       <div class="condition">
-        <p>Mist</p>
+        <p>--</p>
       </div>
 
     </div>
 
-  <nav>
+    <nav>
+      <form>
+        <input type="text" placeholder="Search for a location" class="search_area" />
+        <button type="submit">Search</button>
+      </form>
+    </nav>
 
-    <form>
-      <input type='text' placeholder="Search for a location" class='search_area' />
-      <button type="submit">Search Button</button>
-    </form>
-    
-  </nav>
+  </div>
 
-</div>
 <script src="script.js"></script>
 </body>
-</html>
+</html>S
